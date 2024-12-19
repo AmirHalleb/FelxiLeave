@@ -5,12 +5,13 @@ const PORT = process.env.PORT ||3000
 const authRoutes=require('./routes/auth.routes')
 const LeaveRoutes= require("./routes/leaves.routes")
 const cors = require('cors'); // Import the CORS package
-
+const authRoutes=require('./routes/auth.routes')
+const adminRoutes=require('./routes/admin.routes')
 
 dotenv.config();
 app.use(express.json()); 
 app.use(cors()); // This will allow all origins by default
-
+app.use('/admin',adminRoutes);
 app.use('/auth',authRoutes);
 
 app.use('/leaves',LeaveRoutes);
